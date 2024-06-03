@@ -5,7 +5,7 @@
 - xdotool
 - wmctlr
 
-# usage
+## usage
 
 ```bash
 # example: google search
