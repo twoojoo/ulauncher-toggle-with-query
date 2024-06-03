@@ -1,0 +1,22 @@
+#!/bin/sh
+
+dbus-send \
+    --session \
+    --print-reply \
+    --dest=net.launchpad.ulauncher \
+    /net/launchpad/ulauncher \
+    net.launchpad.ulauncher.toggle_window
+
+# dbus-send is asynchronous and sometimes it takes a bit of time for Ulauncher window to be presented
+sleep 0.03
+
+wmctrl -a "Ulauncher - Application Launcher"
+
+# if a query option is passed to the command, type the query into the Ulauncher window
+if [[ $# > 1 ]]; then
+  if [[ "$1" = "-q" || "$1" = "--query" ]]; then
+    query="$2"
+    xdotool type --clearmodifiers "$query"
+  fi
+fi
+
