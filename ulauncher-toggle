@@ -12,6 +12,8 @@ sleep 0.03
 
 wmctrl -a "Ulauncher - Application Launcher"
 
+sleep 0.03
+
 # if a query option is passed to the command, type the query into the Ulauncher window
 if [[ $# > 1 ]]; then
   if [[ "$1" = "-q" || "$1" = "--query" ]]; then
